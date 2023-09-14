@@ -1,0 +1,141 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<style>
+*{
+    font-family: "Open Sans",sans-serif;
+
+}
+
+body{
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
+    margin: 0px
+}
+
+.about-section{
+    background: url("https://scontent.xx.fbcdn.net/v/t1.15752-9/328286942_3271320453181089_633298088473098534_n.png?stp=dst-png_s403x403&_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_eui2=AeHR10Kkd89iP4HRUqNHU03mBsqpoXoeXywGyqmheh5fLDe35C71v5-caJl0NSiZkLWvDXXohNSYJzzZSbCjiQVy&_nc_ohc=BFa--wrysF4AX-tBBo5&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQRvP5FKdDdUgIrOs03wAjovs5lIVhwPGQsGrONQCcziQ&oe=64B8DA42") no-repeat Left;
+    background-size: 600px 600px;
+    background-position: left;
+    background-color: #f1f1f1;
+    padding: 41px 0px;
+}
+
+.inner-container{
+    max-width: 55%;
+    float: right;
+    background-color: #fdfdfd;
+    padding: 30px;
+    overflow: auto;
+}
+
+.inner-container h1{
+    margin-bottom: 25px;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.text{
+    font-size: 13px;
+    color: #545454;
+    line-height: 23px;
+    text-align: justify;
+
+}
+
+.skills{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+@media screen and (max-width:1200px){
+    .inner-container{
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width:1000px){
+    .about-section{
+        background-size: 100%;
+        padding: 0;
+    }
+    .inner-container{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:600px){
+    .about-section{
+        padding: 0;
+    }
+    .inner-container{
+        padding: 60px;
+    }
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {   
+  background-color: #000000;
+  color: white;
+  position: absolute;
+  padding: 12px 16px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+  top: 20px;
+  left: 50px;
+}
+.previous:hover {
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+
+<body>
+
+
+
+<a href="{{ url_for('home') }}" class="previous round">&#8249;</a>
+        
+
+    <div id= "about" class="about-section">
+        <div class="inner-container">
+            <h1>About Us</h1>
+            <p class="text">
+                Animal health is important in many aspects. It could be for food production, environmental purposes, or for the pet owners to make their home safe and their pet itself. Various animal diseases have been identified to affect animal health. Some of them are seriously fatal, while some can be easily cured by mild medicine. With the variety of animal diseases, the symptoms are difficult to categorize since there are diseases with similar symptoms, hence, a diagnostic test is always recommended to ascertain what particular disease is attacking the animals. <br><br>
+
+                This research aims to develop a website application or system that serves as a pre-assessment tool of the dog’s health based on the symptoms observed. The pet owners, as the target user of the system, will manually input the symptoms observed. With that, this generally requires a significant amount of work, knowledge of common dog diseases, and an extended processing time.   <br><br>
+
+                The researchers will design a predictive model and a website application system to pre-examine the dogs by their symptoms. It will help the dog owners to identify its disease during the early stages before it worsens the dog's health. The created predictive model will be an aid to the dog owners for the infected pet and provide them immediate care.
+
+            </p>
+            <div class="skills">
+                <span>Pet owners</span>
+                <span>Veterinarian</span>
+                <span>Furry Dog</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
