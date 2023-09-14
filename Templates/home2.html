@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+	*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*nav*/
+
+nav{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 10vh;
+    background: #000;
+}
+.logo {
+	color: #fff;
+	text-transform: capitalize;
+	font-size: 24px;
+	cursor: pointer;
+	font-weight: 800;
+	letter-spacing: 2px;
+}
+.logo span{
+    color:  #009EFF; 
+}
+
+.menu{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+.menu li{
+    list-style: none;
+}
+.menu a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 25px;
+    transition: .9s;
+    font-weight: 600;
+}
+.menu a:hover {
+	color:  #2192FF
+	font-weight: 500;
+    letter-spacing: 2px;
+}
+.bar{
+    display: none;
+    cursor: pointer;
+}
+.bar div{
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px;
+    transition: all .5s ease;
+}
+@media screen and (max-width:1024px){
+    .menu{
+        width: 60%;
+    }
+}
+@media screen and (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+    .menu{
+        position: absolute;
+        right: -100%;
+        height: 90vh;
+        top: 10vh;
+        background-color: #000;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+    .bar{
+        display: block;
+    }
+}
+
+.nav-active{
+    transform: translateX(-100%);
+}
+.bar-active .bar-1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.bar-active .bar-2{
+    opacity: 0;
+}
+.bar-active .bar-3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+.banner {
+	background-image: url("https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb 4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+	height: 100vh;
+	background-size: cover;
+	background-position: 100% 30%;
+}
+
+.content h2 {
+	font-family: alfa slab one;
+	color: #fff;
+	font-size: 60px;
+}
+  .content p {
+	width: 50%;
+	color: rgba(255,255,255,0.6);
+	line-height: 2;
+}
+  .content a {
+    background:  #2192FF;
+    text-decoration: none;
+    padding: 15px 30px;
+    color: #fff;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  .socials i {
+    color: #fff;
+    font-size: 18px;
+    margin-right: 25px;
+  }
+  .socials {
+    margin-top: 30px;
+  }
+  .wrapper {
+	width: 1060px;
+	margin: auto;
+	padding-top: 12%;
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .wrapper {
+        width: 75%;
+        padding-top: 26%;
+    }
+    .content{
+        text-align: center;
+    }
+    .content h2 {
+        font-size: 60px;
+    }
+    .content p {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .banner {
+        background-position: 60%;
+    }
+    .wrapper {
+        width: 75%;
+        padding-top: 26%;
+    }
+    .content h2 {
+        font-size: 30px;
+    }
+    .content p {
+        width: 100%;
+    }
+}
+.halfwidth {
+width: 90.3%;
+}
+.popup {
+   position: absolute;
+   padding: 15px;
+   width: 400px;
+   border-radius: 0.5em;
+   top: 50%;
+   left: 50%;
+   color: #000;
+   transform: translate(-50%, -50%);
+   background-color:rgba(255,255,255,1);
+   visibility: hidden;
+   opacity: 0px;
+   transition: opacity .5s, visibility 0s linear .5s;
+   z-index: 1;
+}
+
+.popup:before {    
+      content: "";
+      background-image: url();
+      background-size: cover;
+      position: absolute;
+      filter: opacity(50%);
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 3px;
+}
+
+.popup:target {
+   visibility: visible;
+   opacity: 1;
+   transition-delay: 0s;
+}
+.popup .close {
+   position: absolute;
+   right: 5px;
+   top: 5px;
+   padding: 5px;
+   color: #000;
+   transition: color .3s;
+   font-size: 2em;
+   font-weight: 700;
+}
+.popup .close:hover {
+   color: #f00;
+}
+.close-popup {
+   background-color: rgba(0,0,0,.7);
+   cursor: default;
+   position: fixed;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity .5s, visibility 0s linear .5s;
+}
+.popup:target + .close-popup {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0s;
+}
+
+.popH { 
+  position: relative;
+  color: #000000
+
+  text-align: justify;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 9;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Submit and Close Buttons */
+.btn {
+  background-color:#2192FF;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cancel {
+  background-color: #e6a53e;
+}
+.title {
+    bottom: 60px;
+    }
+</style>
+<form action="{{ url_for('get_names') }}" method="POST">
+<body class="banner">
+    <header>
+        <nav>
+            <div class="logo">
+                <h5>Dog Disease <span>Prediction</span></h5>
+            </div>
+            <ul class="menu">
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('team') }}">Our Team</a></li>
+                <li><a href="#about">Register</a></li>
+            </ul>
+    <div id="about" class="popup">
+   <a href="#" class="close">&times;</a>
+   <center><h1>Register</h1></center>
+ 
+          <p class="popH">
+             <input type="text" placeholder="Your Name" name="your_name" required><br>
+             <input type="text" placeholder="Enter Pet Name" name="pet_name" required><br><br><br>
+             
+              <button type="{{ url_for('predict') }}" method="POST" class="btn">Submit</button>  
+
+              </p></div>
+<a href="#" class="close-popup"></a>
+
+        </nav>
+    </header>
+        <div class="wrapper">
+            <div class="content">
+                <h2 class= 'logo title'>Dog Disease<span> Prediction</span></h2>
+       <div class="results">      
+            
+            <h3s><label class="largerCheckbox" style="color:white;"> {{ your_name }} {{ pet_name }}</label></h3s>
+            </div> 
+                <p>Your fur baby might have these diseases, check out the symptoms!</p>
+
+                <a href="{{ url_for('predict') }}" method="post">Let's get Started</a>
+
+                <h5 class="socials">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-pinterest"></i>
+                    <i class="fa fa-linkedin"></i>
+                    <i class="fa fa-youtube"></i>
+                </h5>
+                
+            </div>
+        </div>
+    
+    
+    <script>
+        const sidenav = () => {
+            const menu = document.querySelector('.bar');
+            const nav = document.querySelector('.menu');
+            
+            menu.addEventListener('click', () => {
+               menu.classList.toggle('bar-active');
+                nav.classList.toggle('nav-active');
+            });
+        }
+        sidenav();
+
+           function openForm() {
+  document.getElementById("register-form").style.display = "block";
+}
+function closeForm() {
+  document.getElementById("register-form").style.display = "none";
+}
+function submitForm() {
+  var inputName = document.getElementsByName("pet-name")[0].value; 
+  //value property of the input element and the innerHTML property, to insert HTML tags and styles withing the text.
+  document.getElementById("display-name").innerHTML = inputName;
+  var message = document.getElementById("message");
+  message.textContent = "Your pet name is " + inputName;
+}
+    </script>
+
+</body>
+</form>
+</html>
