@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet">
+</head>
+
+<style>
+  @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-image: url("https://img.freepik.com/free-photo/abstract-brown-background-leaf-shadow-light-studio-empty-backdrop-product-display-scene-product-placement-3d-illustration_56104-1843.jpg?size=626&ext=jpg");
+  max-height: 100vh;
+  background-size: cover;
+  background-position: top;
+
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  margin: 20px 40px;
+  color: white;
+}
+
+.heading {
+  font-size: 60px;
+  color: white;
+}
+.heading span {
+  font-size: 60px;
+  color: #97c4bd;
+  display: inline-block;    
+
+}
+
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+
+.profile {
+  flex-basis: 260px;
+}
+
+.profile .profile-img {
+  height: 190px;
+  width: 190px;
+  border-radius: 70%;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.profile:hover .profile-img {
+  filter: none;
+}
+
+.user-name {
+  margin-top: 30px;
+  font-size: 25px;
+}
+
+.profile h5 {
+  font-size: 12px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: #ccc;
+}
+
+.profile p {
+  font-size: 16px;
+  margin-top: 20px;
+  text-align: justify;
+}
+
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile p {
+    text-align: center;
+    margin: 20px 60px 80px 60px;
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+
+  .heading span {
+    font-size: 15px;
+  }
+
+  .profiles {
+    margin: 20px 0;
+  }
+
+  .profile p {
+    margin: 20px 10px 80px 10px;
+  }
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: none;
+}
+
+.previous {   
+  background-color: #000000;
+  color: white;
+  position: absolute;
+  padding: 10px 20px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+  top: 20px;
+  left: 50px;
+}
+.previous:hover {
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+
+#rcorners1 {
+  border-radius: 20px;
+  background: #97c4bd;
+  padding: 12px; 
+  width: 160px;
+  height: 20px;  
+}
+
+#rcorners2 {
+  border-radius: 20px;
+  background: #97c4bd;
+  padding: 12px; 
+  width: 160px;
+  height: 20px;
+}
+.pic{
+  size: 100px 50px;
+}
+</style>
+
+<body>
+
+<a href="{{ url_for('home') }}" class="previous round">&#8249;</a>
+
+  <div class="container"><br>
+      <h1 class="heading">Our <span> Team</span></h1> 
+
+    <div class="profiles">
+
+        <div class="profile">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t39.30808-6/316124376_1741542152885792_1697790044224248981_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_eui2=AeFzB-GOQ5QVGynXlMTJwyQvQaEbkCnvutlBoRuQKe-62R6m2kh27QviOEZ7fFIWrosfcjJc-JMyRlpMmAd5qQkW&_nc_ohc=NQPv3PDKL1MAX_RnMge&_nc_ht=scontent.fdvo2-1.fna&oh=00_AfA45Z6viSkVj497RNL4eH7I_-cX2GTxaDPplklf2UxO6w&oe=64A6F28E" class="profile-img">
+
+        <center><h4 class="user-name">Jayve Senepete</h4></center>
+        <center><h5 style="color:#593602" id="rcorners1">Researcher</h5></center>
+            <p><center>BS in Data Science</center></p>
+      </div>
+
+        <div class="profile">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.6435-9/187758491_2898886803708225_7170764621497336452_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=174925&_nc_eui2=AeG55xW1MQQrcD3kkXhev2fjNxg8SnN-OSA3GDxKc345IHwI43PFsaTtNMtED3gyG51q87Xt-Qrxf6sDZ2vopS_x&_nc_ohc=XRJUjqGnwmMAX_D60tY&_nc_ht=scontent.fdvo2-1.fna&oh=00_AfADdTHnkFsk-VYidHsNZBeKeGFmsWSAVKHDgNN1nQnO5w&oe=64C97286" class="profile-img">
+
+            <center><h4 class="user-name">Sheena Candel</h4></center>
+            <center><h5 style="color:#593602" id="rcorners1"> Lead Researcher</h5></center>
+            <p><center>BS in Data Science</center></p>
+      </div>
+        
+        <div class="profile">
+        <img src="https://scontent.fdvo2-1.fna.fbcdn.net/v/t1.15752-9/328589831_746867213211887_9213253831043027567_n.png?_nc_cat=104&ccb=1-7&_nc_sid=ae9488&_nc_eui2=AeEGNe-n4cP-6zmeac20T3GfxxYlxlzeG_zHFiXGXN4b_E3UKWBda3QaH3anC-oLemzuuT1cT2pppkoHTRQue7z6&_nc_ohc=A2_o4PDTWC8AX8fvz2R&_nc_ht=scontent.fdvo2-1.fna&oh=03_AdQxkovfvn57W2GexXRSiSj-FWv2e7hTF_--Ek9YoF3zwg&oe=64C96D75">
+
+            <center><h4 class="user-name">Matthew  Maulion, MSc</h4></center>
+            <center><h5 style="color:#593602" id="rcorners2">Research Adviser</h5></center>
+            <p><center>BS in Data Science</center></p>
+      </div>
+
+        <div class="profile">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t1.6435-9/122615237_3387003151394034_2118509138494494981_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_eui2=AeFwTrEb9mqchxO2ZtdsEG0dbj8pRU72D8ZuPylFTvYPxpiX6ADMyyRhFieajx1R5LTPmZkpqf8j-sXjiJ9LXjBD&_nc_ohc=fYDhZfubgAEAX_RDVK8&_nc_ht=scontent.fdvo2-2.fna&oh=00_AfCAkf-Uq_9BvxFzUsLSx341TLsilUFC_eMVZcVEDWFQuQ&oe=64C95851">
+
+        <center><h4 class="user-name">Lucky Barbarona</h4></center>
+            <center><h5 style="color:#593602" id="rcorners1">Researcher</h5></center>
+            <p><center>BS in Data Science</center></p>
+      </div>
+
+        <div class="profile">
+        <img src="https://scontent.fdvo2-2.fna.fbcdn.net/v/t39.30808-6/327443005_1352460178875105_3551840336136341716_n.jpg?stp=dst-jpg_p843x403&_nc_cat=100&ccb=1-7&_nc_sid=730e14&_nc_eui2=AeH0I6XM3Udmd_4OCzzvulliqnWhHWGD3jCqdaEdYYPeMHn5hvXNKy5PSLaXmBgtX7WSDVbgJKJcw-RdrG0va_Z6&_nc_ohc=BUvX37qMx84AX_x01BS&_nc_ht=scontent.fdvo2-2.fna&oh=00_AfCaIkcpACkom5FSv9igFEDEP_iiqQg01EUVg9ptuTOQAg&oe=64A61347" class="profile-img">
+
+        <center><h4 class="user-name">Jascha Jane Sy</h4></center>
+            <center><h5 style="color:#593602"  id="rcorners1">Researcher</h5></center>
+            <p style="color:#593602" ><center>BS in Data Science</center></p>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
