@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+       <body> 
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">           
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">    
+    <head>
+        <nav>
+            <div class="logo">
+                <h5>Dog Disease <span>Prediction</span></h5>
+            </div>
+            <ul class="menu">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About Us</a></li>
+                <li><a href="{{ url_for('team') }}">Our Team</a></li>
+            </ul>
+
+    <div id="about" class="popup">
+   <a href="#" class="close">&times;</a>
+   <center><h1>Register</h1></center>
+ 
+          <p class="popH">
+             <input type="text" placeholder="Your Name" id="your_name" name="your_name" required><br>
+             <input type="text" placeholder="Enter Pet Name" id="pet_name" name="pet_name" required><br><br><br>
+             <button style="btn" type="submit" value="Submit">Submit</button>          
+
+              </p></div>
+<a href="#" class="close"></a>
+
+        </nav>        
+        </head>
+     
+        <style>
+
+                       body, html {
+                       height: 100%;
+                       padding: 0;
+                       max-width: 100%;
+                       margin: 0 auto;
+                      }
+
+                    input.largerCheckbox {
+                        width: 10px;
+                        height: 10px;
+                     }
+                     .halfwidth {
+                         max-width: 97.3%;
+                        
+                         
+                     }
+                     .fix {
+                         position: fixed;
+                         
+                     }
+                     .halfspace {
+                         max-width: 47%;
+                         height:420px;
+                     }
+                     .rightside {
+                         width: 53%;
+                         height: 420px;
+                     }
+                     .forbutton {
+                         width: 10%
+                         height: 20%
+                         
+                     }
+                     .floatright {
+                         float: right;
+                     }
+                    .hovertext {
+                      position: relative;
+                     
+                    }
+
+                    .hovertext:before {
+                      content: attr(data-hover);
+                      visibility: hidden;
+                      font-size: 15px;
+                      opacity: 0;
+                      width: 250px;
+                      background-color: black;
+                      color: #fff;
+                      text-align: center;
+                      border-radius: 5px;
+                      padding: px 0;
+                      transition: opacity 1s ease-in-out;
+
+                      position: absolute;
+                      z-index: 1;
+                      left: 110%;
+                      top: 0;
+                    }
+
+                    .hovertext:hover:before {
+                      opacity: 1;
+                      visibility: visible;
+                    }
+                     
+                   .bg {
+                     /* The image used */
+                     background-image:url("https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb 4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+
+
+
+                     /* Full height */
+                     height: 88.7%; 
+                     opacity: 0.9;
+
+                     /* Center and scale the image nicely */
+                     background-repeat: no-repeat;
+                     background-size: cover;
+                     background-position: center;
+                   }
+
+	*{
+    margin: 0;
+    box-sizing: border-box;
+}
+/*nav*/
+                     
+nav{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 5vh;
+    background: #000;
+}
+.logo {
+	color: #fff;
+	text-transform: capitalize;
+	font-size: 24px;
+	cursor: pointer;
+	font-weight: 900;
+	letter-spacing: 1px;
+}
+.logo span{
+    color:  #2192FF; 
+}
+
+.menu{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+}
+.menu li{
+    list-style: none;
+}
+.menu a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 25px;
+    transition: .9s;
+    font-weight: 600;
+}
+.menu a:hover {
+	color:  #2192FF
+	font-weight: 500;
+    letter-spacing: 2px;
+}
+.bar{
+    display: none;
+    cursor: pointer;
+}
+.bar div{
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px;
+    transition: all .5s ease;
+}
+@media screen and (max-width:1024px){
+    .menu{
+        width: 60%;
+    }
+}
+@media screen and (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+    .menu{
+        position: absolute;
+        right: -100%;
+        height: 90vh;
+        top: 10vh;
+        background-color: #000;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+    }
+    .bar{
+        display: block;
+    }
+}
+
+.nav-active{
+    transform: translateX(-100%);
+}
+.bar-active .bar-1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.bar-active .bar-2{
+    opacity: 0;
+}
+.bar-active .bar-3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.btn {
+   padding: 2px 4px;
+   display: inline-block;
+   margin-top: 0;
+   background-color: transparent;
+   font-weight: 700;
+   transition: .3s;
+}
+.btn:hover {
+   color: #ffd970;
+}
+
+.popup {
+   display: block;
+   position: fixed;
+   padding: 50px;
+   max-width: 600px;
+   border-radius: 0.5em;
+   top: 50%;
+   left: 50%;
+   color: #000;
+   transform: translate(-50%, -50%);
+   background-color:rgba(255,255,255,1);
+   opacity: 0px;
+   transition: opacity .5s, visibility 0s linear .5s;
+   z-index: 1;
+}
+
+.popup:before {    
+      content: "";
+      background-image: url();
+      background-size: cover;
+      position: absolute;
+      filter: opacity(50%);
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 3px;
+}
+
+.popup:target {
+   opacity: 1;
+   transition-delay: 0s;
+}
+.popup .close {
+   position: absolute;
+   right: 5px;
+   top: 5px;
+   padding: 5px;
+   color: #000;
+   transition: color .3s;
+   font-size: 2em;
+   line-height: 1.5;
+   font-weight: 700;
+}
+.popup .close:hover {
+   color: #f00;
+}
+.close-popup {
+   background-color: rgba(0,0,0,.7);
+   cursor: default;
+   position: fixed;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity .5s, visibility 0s linear .5s;
+}
+.popup:target + .close-popup {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0s;
+}
+
+.popH { 
+  position: relative;
+  color: #000000
+  line-height: 0.9;
+  text-align: justify;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+
+}
+
+.previous {   
+  background-color: #000000;
+  color: white;
+  position: absolute;
+  padding: 12px 16px; /* Some padding */
+  cursor: pointer; /* Mouse pointer on hover */
+  top: 20px;
+  left: 50px;
+}
+.previous:hover {
+  color: white;
+}
+
+.round {
+  border-radius: 50%;
+}
+.body {
+  width: 800px;
+  margin: 0 auto;
+}
+.legend-style {
+   border: 2px solid deepskyblue;
+}
+.button {
+    background-color: deepskyblue;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    font-size: 15px;
+    cursor: pointer;            
+    position: absolute;
+    bottom: 25px;
+    left: 230px;}
+                   
+.button1 {
+    background-color: deepskyblue;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    font-size: 15px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 25px;
+    right: 230px;
+}
+.results {
+    max-height: 300px;
+}
+.popup {
+   display: block;
+   position: absolute;
+   padding: 15px;
+   width: 400px;
+   border-radius: 0.5em;
+   top: 50%;
+   left: 50%;
+   color: #000;
+   transform: translate(-50%, -50%);
+   background-color:rgba(255,255,255,1);
+   visibility: hidden;
+   opacity: 0px;
+   transition: opacity .5s, visibility 0s linear .5s;
+   z-index: 1;
+}
+
+.popup:before {    
+      content: "";
+      background-image: url();
+      background-size: cover;
+      position: absolute;
+      filter: opacity(50%);
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 3px;
+}
+
+.popup:target {
+   visibility: visible;
+   opacity: 1;
+   transition-delay: 0s;
+}
+.popup .close {
+   position: absolute;
+   right: 5px;
+   top: 5px;
+   padding: 5px;
+   color: #000;
+   transition: color .3s;
+   font-size: 2em;
+   line-height: 1.5;
+   font-weight: 700;
+}
+.popup .close:hover {
+   color: #f00;
+}
+.close-popup {
+   background-color: rgba(0,0,0,.7);
+   cursor: default;
+   position: fixed;
+   top:0;
+   left:0;
+   right:0;
+   bottom:0;
+   opacity: 0;
+   visibility: hidden;
+   transition: opacity .5s, visibility 0s linear .5s;
+}
+.popup:target + .close-popup {
+   opacity: 1;
+   visibility: visible;
+   transition-delay: 0s;
+}
+
+.popH { 
+  position: relative;
+  color: #000000
+  line-height: 0.9;
+  text-align: justify;
+}
+
+.form-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  border: 1px solid #ccc;
+  z-index: 9;
+}
+
+/* Form Container */
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Submit and Close Buttons */
+.btn {
+  background-color:#2192FF;
+  color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.cancel {
+  background-color: #e6a53e;
+}
+
+
+     
+
+                   </style>
+
+
+
+         <div  class="bg" style="background-color: rgba(255, 255, 255, 0.1);">
+          <a href="{{ url_for('home') }}"class="previous round">&#8249;</a>             
+            
+             
+                    
+ <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="POST">
+        <center> <h3 style="color:white;">Welcome!</h3></center>
+        <center> <h3 style="color:white;">  Check the Observed symptoms :) Hover on each Symptoms for Info. </h3> </center><br>
+    <fieldset style="background-color: rgba(0, 0, 0, 0.3);" class="floatright rightside">
+        <center><div class="results">            
+                    <h4 style="color:skyblue">Symptoms Selected:</h4><br>
+            
+            <h3><label class="largerCheckbox" style="color:white;"> {{ feature_names }}</label></h3><br><br>
+            </div></center>
+        <center><div class="results">
+
+            <h3><label style="color:skyblue">Prognosis: </label></h3>
+            <h4><span style="color:skyblue">(Chances of recovery)</span></h4><br>
+            <h2><p><label style="color:white;">{{ prognosis }}</label></p></h2><br><br>
+            </div></center>
+        
+            <center><h3><label style="color:skyblue;">Disease Predicted:</label></h3><br>
+                <h2><label class="largerCheckbox" style="color:white;"> {{ prediction_text }}</label></h2></center><br><br>                   
+        </fieldset>
+
+      
+    <fieldset style="background-color: rgba(0, 0, 0, 0.3);" class="halfspace">
+        <div style="max-height:400px;overflow:auto;">
+
+          <h3>
+            
+            <fieldset class="halfwidth">
+           
+                <legend style ="background-color:#89C4E1;" > Behavioral Changes </legend>
+                
+                  <input type="checkbox" id="lethargy" name="lethargy" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0"> 
+                  <label for="lethargy"style="color:white;" class="hovertext" data-hover="a feeling of extreme tiredness.">
+                      Lethargy</label><br>
+                  <input type="checkbox" id="laziness" name="laziness" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="laziness"style="color:white;" class="hovertext" data-hover="not energetic or slow moving.">
+                      Laziness</label><br>
+                  <input type="checkbox" id="depression" name="depression" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="depression"style="color:white;" class="hovertext" data-hover="a decrease in and lack of interest 
+                      in enjoyable activities.">Depression</label><br>
+                  <input type="checkbox" id="weakness" name="weakness" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="weakness"style="color:white;" class="hovertext" data-hover="a type of feeling that can affect the strength
+                      and energy levels classified as an autoimmune disease, Myasthenia Gravis is the weakness or fatigue related to a
+                      dog's skeletal muscles."> Weakness </label><br>
+                  <input type="checkbox" id="fatigue" name="fatigue" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="fatigue"style="color:white;" class="hovertext" data-hover="the decline in a muscle's capacity to create force of contraction, leading to the animal's inability to continue performing at the same level of intensity."> Fatigue</label><br>
+                  <input type="checkbox" id="fainting" name="fainting" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="fainting"style="color:white;" class="hovertext" data-hover="is unconsciousness caused by a lack of cerebral circulation as a result of a short failure of the systemic circulatio">Fainting</label><br>
+                  <input type="checkbox" id="aggression" name="aggression" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="aggression"style="color:white;" class="hovertext" data-hover="A forceful action or procedure (such as an unprovoked attack) especially when intended to dominate or master. When an animal growls, snarls, snaps, or bites, it is displaying aggression."> Aggression</label><br>
+                  <input type="checkbox" id="irritable" name="irritable" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="irritable"style="color:white;" class="hovertext" data-hover="the excitatory ability that living organisms have to respond to changes in their environment."> Irritable </label><br>
+                  <input type="checkbox" id="pica" name="pica" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="pica"style="color:white;" class="hovertext" data-hover="a condition where the animal feels compelled to eat objects that are not food items which includes metal, plastic, cloth, garbage, dirt, rocks, paper, or even feces."> Pica</label><br>
+                <input type="checkbox" id="hydrophobia" name="hydrophobia" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="hydrophobia"style="color:white;" class="hovertext" data-hover="a severe, generally deadly, infectious illness of the central nervous system transmitted by biting among domestic dogs and wild predatory animals. All warm-blooded animals, including humans, are vulnerable to rabies"> Hydrophobia </label><br>
+                <input type="checkbox" id="highlyexcitable" name="highlyexcitable" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                 <label for="highlyexcitable"style="color:white;" class="hovertext" data-hover="Animals with a tendency to react quickly and strongly to things. Excited behavior is frequently difficult to control and can be seen in a variety of everyday routine situations such as greeting, playing, demanding food, or seeing someone"> Highly Excitable </label><br>
+       
+             </fieldset>
+             
+
+          <fieldset class="halfwidth">
+              <legend style ="background-color:#89C4E1;">Physical Observation</legend>
+     
+                  <input type="checkbox" id="fever" name="fever" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="fever"style="color:white;" class="hovertext" data-hover="an increase in body temperature because of an increase in the body's thermoregulatory set point."> Fever</label><br>
+                  <input type="checkbox" id="stiffness" name="stiffness" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="stiffness"style="color:white;" class="hovertext" data-hover="can be caused by several different conditions, the most common being minor injuries and arthritis"> Stiffness</label><br>
+
+                  <input type="checkbox" id="paralysis" name="paralysis" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="paralysis"style="color:white;" class="hovertext" data-hover="usually associated with an injury of the spinal cord or nerves supplying the limb."> Paralysis</label><br>
+                  <input type="checkbox" id="weightloss" name="weightloss" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="weightloss"style="color:white;" class="hovertext" data-hover="is caused by a lack of calorie intake in comparison to the body's requirement."> Weight Loss</label><br>
+                  <input type="checkbox" id="hyperkeratosis" name="hyperkeratosis" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="hyperkeratosis"style="color:white;" class="hovertext" data-hover="(Hardening of the Paw Pads and Nose) Overgrowth and thickening of the skin's outer layer.  If left untreated, hyperkeratosis on the nose may be very uncomfortable, and keratin buildup on your dog's feet can actually become difficult to walk on."> Hyperkeratosis</label><br>
+                  <input type="checkbox" id="skinsores" name="skinsores" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="skinsores"style="color:white;" class="hovertext" data-hover="a viral illness that affects cattle and water buffalo and produces pretty low mortality. However, the disease can produce animal welfare problems as well as severe output losses. The illness is mostly transmitted by biting insects such as flies, mosquitoes, and potentially ticks."> Skin Sores</label><br>
+              <input type="checkbox" id="SwollenBelly" name="SwollenBelly" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+              <label for="SwollenBelly"style="color:white;" class="hovertext" data-hover="Gastric dilatation and volvulus (GDV) happens when the distended stomach rotates, trapping the gas inside, and blocking off the stomach's blood supply."> Swollen Belly</label><br>
+       
+            </fieldset>
+
+             <fieldset class="halfwidth">
+                 <legend style ="background-color:#89C4E1;">Oral Observation</legend>
+                  <input type="checkbox" id="vomiting" name="vomiting" class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="vomiting"style="color:white;" class="hovertext" data-hover="a reaction to medications, exposure to toxins, cancer, foreign objects in the stomach, or even motion sickness."> Vomiting</label><br>
+                  <input type="checkbox" id="inflammation_mouth " name="inflammation_mouth " class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="inflammation_mouth "style="color:white;" class="hovertext" data-hover="refers to a more generalized inflammation of the mucous membranes of the mouth, which may include the gums, tongue, inner surfaces of the lips, and/or the floor and roof of the mouth."> Inflammation Mouth </label><br>
+                  <input type="checkbox" id="excesssalivation" name="excesssalivation" class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="excesssalivation"style="color:white;" class="hovertext" data-hover="This tends to happen when the salivary glands produce more saliva than the animal can swallow."> Excess Salivation</label><br>
+                  <input type="checkbox" id="foamingatmouth " name="foamingatmouth " class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="foamingatmouth "style="color:white;" class="hovertext" data-hover="tends to happen when extra saliva piles up in the mouth or lungs and mixes with air, resulting in foam."> Foaming at Mouth </label><br>
+                  <input type="checkbox" id="difficultyinswallowing " name="difficultyinswallowing " class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="difficultyinswallowing "style="color:white;" class="hovertext" data-hover="can result from jaw paralysis, tongue paralysis, dental illness, swelling or fading away of the chewing muscles, or an inability to open the mouth."> Difficulty in Swallowing </label><br>
+                  <input type="checkbox" id="palegums" name="palegums" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="palegums"style="color:white;" class="hovertext" data-hover="A gum with a paucity of blood or hemoglobin may seem pale pink or even white. This is frequently a symptom of anemia or severe blood loss."> Pale Gums</label><br>
+                  <input type="checkbox" id="ulcersinmouth" name="ulcersinmouth" class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="ulcersinmouth"style="color:white;" class="hovertext" data-hover="are sores that can appear anywhere in the soft tissue of a dog's mouth. Ulcers can form on the lips, gums, and tongue, as well as the inner cheeks."> Ulcer in Mouth</label><br>
+                 <input type="checkbox" id="badbreath" name="badbreath" class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="badbreath"style="color:white;" class="hovertext" data-hover="An obnoxious, foul-smelling odor that’s coming from your dog’s mouth when he’s close. Oral malodor or bad breath is a frequent issue among pet owners, and it is usually referred to as 'doggy breath' in dogs and 'fish' breaths in cats. Periodontal disease caused by plaque (biofilm) and tartar buildup is the most prevalent cause of bad breath in animals."> Bad Breath</label><br>
+             </fieldset>
+              <fieldset class="halfwidth ">
+                  
+                 <legend style ="background-color:#89C4E1;">Nose Problem</legend>
+                  
+                  <input type="checkbox" id="nasaldischarge" name="nasaldischarge" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0"> 
+                  <label for="nasaldischarge"style="color:white;" class="hovertext" data-hover="A nose discharge of mucus or pus could indicate if it has a bacterial, fungal, or viral infection."> Nasal Discharge</label><br>
+                  <input type="checkbox" id="sneezing " name="sneezing " class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="sneezing "style="color:white;" class="hovertext" data-hover="Sneezing is a common early sign of a cold or allergies."> Sneezing</label><br>
+                  <input type="checkbox" id="reversesneezing" name="reversesneezing" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="reversesneezing"style="color:white;" class="hovertext" data-hover="tends to happen when the dog rapidly inhales air rather than quickly exhales air, as in a typical sneeze."> Reverse Sneezing</label><br>
+              </fieldset>
+              <fieldset class="halfwidth">
+                 <legend style ="background-color:#89C4E1;">Eye Problem</legend>
+                  <input type="checkbox" id="dischargefromeyes" name="dischargefromeyes" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="dischargefromeyes"style="color:white;" class="hovertext" data-hover="is a buildup of mucus, oil, skin cells, and other debris in the corner of the eye as they sleep. Based on how much of the liquid in the discharge has evaporated, it might be moist and sticky or dry and crusty"> Discharge from Eyes</label><br>
+                  <input type="checkbox" id="inflammation_eyes" name="inflammation_eyes" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0"onchange="this.value = this.checked ? 1 : 0">
+                  <label for="inflammation_eyes"style="color:white;" class="hovertext" data-hover="is a painful condition where the eye becomes reddened and swollen, usually as a result of allergies, an infection, injury, tumor or congenital abnormality. Other symptoms include rubbing, scratching, flaky skin and eye discharge.">Inflammation Eyes</label>
+              </fieldset>
+             <fieldset class="halfwidth">
+                 <legend style ="background-color:#89C4E1;">Eating Habit</legend>
+                  <input type="checkbox" id="decreasedthirst " name="decreasedthirst " class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="decreasedthirst "style="color:white;" class="hovertext" data-hover="a rare illness in which the activation threshold of hypothalamic effectors fails, resulting in osmolality imbalance."> Decreased Thirst </label><br>
+                  <input type="checkbox" id="reducedappetite" name="reducedappetite" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="reducedappetite"style="color:white;" class="hovertext" data-hover="decreased appetite is when your desire to eat is reduced."> Reduced Appetite</label><br>
+                  <input type="checkbox" id="anorexia " name="anorexia " class="hovertext" data-hover="" class="largerCheckbox" onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="anorexia "style="color:white;" class="hovertext" data-hover="is a decrease or loss of appetite for food. While hunger is physically driven, appetite is mentally driven."> Anorexia </label><br>
+             
+                  <input type="checkbox" id="dehydration" name="dehydration" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="dehydration"style="color:white;" class="hovertext" data-hover="Dehydration occurs when a dog loses more fluid than they are consuming. Water can be lost through panting, breathing, urination, defecation, vomiting, and even evaporation through the paw pads."> Dehydration</label><br>
+                  <input type="checkbox" id="increasedthirst" name="increasedthirst" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="increasedthirst"style="color:white;" class="hovertext" data-hover="Excessive and persistent thirst may indicate an underlying condition such as diabetes, kidney disease, or heatstroke."> Increased Thirst</label><br>
+                  <input type="checkbox" id="reversesneezing" name="reversesneezing" class="largerCheckbox"
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="reversesneezing"style="color:white;" class="hovertext" data-hover="tends to happen when the dog rapidly inhales air rather than quickly exhales air, as in a typical sneeze."> Reverse Sneezing </label>
+             </fieldset>
+
+
+             <fieldset class="halfwidth">
+                 <legend style ="background-color:#89C4E1;">Breathing Behavior</legend>
+                  <input type="checkbox" id="gagging" name="gagging" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="gagging"style="color:white;" class="hovertext" data-hover="A non-scientific description of the sounds an animal produces right before or after coughing. They sound like they're attempting to puke while coughing."> Gagging </label><br>
+                  <input type="checkbox" id="coughing" name="coughing" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="coughing"style="color:white;" class="hovertext" data-hover="Coughing might indicate a blood clot in the lung. Tracheal collapse is a disorder in which the trachea, or windpipe, of an animal, collapses, causing breathing issues."> Coughing </label><br>
+                  <input type="checkbox" id="difficultyinbreathing" name="difficultyinbreathing" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="difficultyinbreathing"style="color:white;" class="hovertext" data-hover="it might be caused by an underlying illness, such as lung disease or diseases of the throat or mouth."> Difficulty in Breathing</label><br>
+                  <input type="checkbox" id="rapidheartbeat" name="rapidheartbeat" class="largerCheckbox"
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="rapidheartbeat"style="color:white;" class="hovertext" data-hover="It might be as simple as anxiousness, but it can also suggest a variety of additional illnesses such as blood loss, dehydration, fever, and heatstroke."> Rapid Heartbeat</label><br>
+              </fieldset>
+              
+              <fieldset class="halfwidth">
+                 <legend style ="background-color:#89C4E1;">Wasting Behavior</legend>
+                 
+                  <input type="checkbox" id="diarrhea" name="diarrhea" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="diarrhea"style="color:white;" class="hovertext" data-hover="is an excess of water in the stool. Excess water occurs when the colon is unable to absorb water from the waste as it passes through the large intestine."> Diarrhea</label><br>
+                  <input type="checkbox" id="increasedurination" name="increasedurination" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="increasedurination"style="color:white;" class="hovertext" data-hover="Frequent urination can be an indication of a variety of illnesses, varying from kidney illness to simply drinking too much liquids."> Increased Urination</label><br>
+                  <input type="checkbox" id="decreasedurination" name="decreasedurination" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="decreasedurination"style="color:white;" class="hovertext" data-hover="Frequent urination can be an indication of a variety of illnesses, varying from kidney illness to simply drinking too much liquids.">Decreased Urination</label><br>
+                  <input type="checkbox" id="bloodinurine" name="bloodinurine" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="bloodinurine"style="color:white;" class="hovertext" data-hover=" Bloody urine can be produced by urinary system abnormalities or disease processes elsewhere in the body that might impact the urinary tract.">Blood in Urine</label><br>
+                  <input type="checkbox" id="bloodystool" name="bloodystool" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="bloodystool"style="color:white;" class="hovertext" data-hover="A bloody stool can be caused by gastrointestinal parasites, colon irritation, irritable bowel syndrome, or malignancy. It is critical to identify whether your pet is passing digested blood or frank blood."> Bloody Stool</label>
+              </fieldset>
+              
+              <fieldset class="halfwidth">
+                 <legend style ="background-color:#89C4E1;">Unusual Behavior</legend>
+                  <input type="checkbox" id="seizures" name="seizures" class="largerCheckbox"
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="seizures"style="color:white;" class="hovertext" data-hover="a temporary involuntary disturbance of normal brain function that is usually accompanied by uncontrollable muscle activity."> Seizures</label><br>
+                  <input type="checkbox" id="shivering" name="shivering" class="largerCheckbox" 
+                         onclick="ValueCheck(this)" size = "20" value="0" onchange="this.value = this.checked ? 1 : 0">
+                  <label for="shivering"style="color:white;" class="hovertext" data-hover="a bodily function in response to cold and extreme fear in warm-blooded animals">Shivering </label>
+
+              </fieldset></h3>
+
+            
+                </div>
+            </fieldset>
+
+
+              <right><h4><button type="clear" class="button1 floatright" style="btn">Clear
+               <i class="fa fa-paw" style="font-size:15px"></i></button></h4></right> 
+             <center><h4><button type="predict" class="button" style="btn">Predict 
+                 <i class="fa fa-paw" style="font-size:15px"></i></button></h4></center>
+
+        
+             </form>
+             
+
+             
+                <script>
+                    function ValueCheck(checkbox) {
+                        if(checkbox.checked) {
+                            checkbox.value = "1";
+                        } else {
+                            checkbox.value ="0";
+                        }
+                    }
+                    
+                    function menuOnClick() {
+                      document.getElementById("menu-bar").classList.toggle("change");
+                      document.getElementById("nav").classList.toggle("change");
+                      document.getElementById("menu-bg").classList.toggle("change-bg");
+                    }
+                    </script>
+    
+    
+                <br>
+                <br>
+                
+             </div>
+        </body>
+     
+</html>
+
